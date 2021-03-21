@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  namespace: applications
+  name: ingress-route
+annotations:
+  kubernetes.io/ingress.class: "traefik"
+  cert-manager.io/issuer: issuer
+  traefik.ingress.kubernetes.io/router.entrypoints: web
+  traefik.frontend.redirect.entryPoint: https
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`domain.com`)
+      middlewares:
+        - name: https-only
+      kind: Rule
+      services:
+        - name: application
+          namespace: applications
+          port: 80
+
+
+
+

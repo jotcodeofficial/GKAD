@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  namespace: applications
+  name: staging-auth-middleware
+spec:
+  basicAuth:
+    secret: staging-auth-secret
+

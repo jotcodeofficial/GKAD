@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: staging-issuer
+  namespace: applications
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: letsencrypt@domain.com
+    privateKeySecretRef:
+      name: staging-domain-com-tls-letsencrypt
+    solvers:
+    - http01:
+        ingress:
+          class: traefik
+
+
+
+
+

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  namespace: applications
+  name: 'application'
+  labels:
+    app: 'application'
+    tier: 'frontend'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 'application'
+  template:
+    metadata:
+      labels:
+        app: 'application'
+    spec:
+      containers:
+      - name: application-container
+      image: richarvey/nginx-php-fpm:1.10.3 
+      imagePullPolicy: Always
+      env:
+        - name: SSH_KEY
+          value: 'insert your ssh key for your repo from where to pull the code from here'
+        - name: GIT_REPO
+          value: 'git@gitlab.domain.com:name/application-source.git'
+        - name: GIT_EMAIL
+          value: 'name@domain.com'
+        - name: GIT_NAME
+          value: 'your git name here'
+      ports:
+      - containerPort: 80
+
+
+
+
+
+

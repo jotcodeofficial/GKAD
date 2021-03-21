@@ -1,0 +1,28 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  namespace: applications
+  name: secure-ingress-route
+annotations:
+  kubernetes.io/ingress.class: "traefik"
+  cert-manager.io/issuer: issuer
+  traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  traefik.frontend.redirect.entryPoint: https
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`domain.com`)
+      kind: Rule
+      services:
+        - name: application
+          namespace: applications
+          port: 80
+  tls:
+    domains:                      
+    - main: domain.com
+    options:
+      namespace: applications
+    secretName: domain-com-tls
+
+
