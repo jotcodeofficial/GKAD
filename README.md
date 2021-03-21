@@ -3,7 +3,7 @@ Welcome to the Gitlab Kubernetes Application Deployer (GKAD).
 
 
 # Quick reference
-* Where to file docker-related issues: [https://github.com/jotcodeofficial/GKAD/issues](https://github.com/jotcodeofficial/GKAD/issues)
+* Where to file issues: [https://github.com/jotcodeofficial/GKAD/issues](https://github.com/jotcodeofficial/GKAD/issues)
 
 
 # What is GKAD?
