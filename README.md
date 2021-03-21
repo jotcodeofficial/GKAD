@@ -1,15 +1,15 @@
-# Quick reference
+# Introduction
 Welcome to the Gitlab Kubernetes Application Deployer (GKAD).
 
 
-# Quick reference (cont.)
+# Quick reference
 * Where to file docker-related issues: [https://github.com/jotcodeofficial/GKAD/issues](https://github.com/jotcodeofficial/GKAD/issues)
 
 
 # What is GKAD?
 GKAD is an opinionated application framework that lays the groundwork so that you can deploy your applications to your kubernetes cluster using a gitlab-ci.yml file. This gets you off the ground fast and lets you have reliable builds with continous deployment.
 
-For more information and related blog posts, please visit [JotCode.com](https://jotcode.com).
+For more information and related blog posts, please visit [Jotcode.com](https://jotcode.com).
 
 # How to get started
 Hey there, Lets begin!
@@ -124,29 +124,3 @@ Ensure to check the storage volume was created in your provider.
 Your app should now be visible by visiting your staging.domain.com
 
 Once you can confirm everything is working as expected, you can edit the gitlab-ci.yml file and enable the production builds.
-
-## Using `Dockerfile`
-Pretty minimalistic `Dockerfile` as everything you need is already bundled.  Just provide environment variables or environment file.
-
-```dockerfile
-FROM bubbajames/sendy:4.1
-
-# ... additional apache/php configurations here ... 
-# e.g. copy your SSL Certificate and apache configurations if not using a load balancer.  
-```
-### Start a Sendy instance
-The following starts an instance specifying an environment file.
-
-```console
-$ docker run -d -name sendy --env_file sendy.env -p 80:80 sendy
-```
-
-### Sample environment file
-```ini
-SENDY_FQDN=campaigns.example.com
-MYSQL_HOST=db_sendy
-MYSQL_DATABASE=sendy
-MYSQL_USER=sendy
-MYSQL_PASSWORD_FILE=/run/secrets/db_password
-# MYSQL_PASSWORD=db_password
-```
