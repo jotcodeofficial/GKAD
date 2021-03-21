@@ -124,3 +124,8 @@ Ensure to check the storage volume was created in your provider.
 Your app should now be visible by visiting your staging.domain.com
 
 Once you can confirm everything is working as expected, you can edit the gitlab-ci.yml file and enable the production builds.
+
+For more information on configuring the phpfpm application, check out:
+[https://gitlab.com/ric_harvey/nginx-php-fpm](https://gitlab.com/ric_harvey/nginx-php-fpm)
+
+If you want to use your own docker container then just change the relevant code in the staging-application.yml and application.yml files
